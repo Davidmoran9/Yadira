@@ -99,7 +99,7 @@ env.addEventListener("click", openGate);
 const io = new IntersectionObserver((entries) => {
   entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
 }, { threshold: 0.2, rootMargin: "0px 0px -6% 0px" });
-document.querySelectorAll("[data-reveal], #corazon").forEach((el) => io.observe(el));
+document.querySelectorAll("[data-reveal], #corazon, #estrellas").forEach((el) => io.observe(el));
 
 /* ---------- Frase que se ilumina con el scroll ---------- */
 (() => {
@@ -179,7 +179,7 @@ const fx = $("#fx"), fctx = fx.getContext("2d");
 let parts = [], fxRun = false;
 const fxSize = () => { const d = Math.min(2, devicePixelRatio || 1); fx.width = innerWidth * d; fx.height = innerHeight * d; fctx.setTransform(d, 0, 0, d, 0, 0); };
 fxSize(); addEventListener("resize", fxSize);
-const HC = ["#ff9ccf", "#ffc2e2", "#b57bff", "#d9c2ff", "#ffe2b8", "#ff6fb0"];
+const HC = ["#b57bff", "#8a5cff", "#d9c2ff", "#b57bff", "#ff9ccf", "#ffe2b8"];
 function heartsBurst(x, y, n) {
   if (reduce) return;
   for (let i = 0; i < n; i++) {
