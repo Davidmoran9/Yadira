@@ -243,8 +243,10 @@ function dodge() {
   dodges++; setLabel();
 }
 no.addEventListener("pointerenter", (e) => { if (e.pointerType !== "touch") dodge(); });
-no.addEventListener("pointerdown", (e) => { if (e.pointerType === "touch" && !exhausted() && !reduce) { e.preventDefault(); dodge(); } });
-no.addEventListener("click", (e) => { if (!exhausted() && !reduce) { e.preventDefault(); dodge(); return; } say(); });
+let lastTouchDodge = 0;
+no.addEventListener("pointerdown", (e) => { if (e.pointerType === "touch" && !exhausted() && !reduce) { e.preventDefault(); lastTouchDodge = Date.now(); dodge(); } });
+no.addEventListener("click", (e) => { if (Date.now() - lastTouchDodge < 600) { e.preventDefault(); return; }
+  if (!exhausted() && !reduce) { e.preventDefault(); dodge(); return; } say(); });
 yes.addEventListener("click", say);
 
 /* ---------- Respuesta ---------- */

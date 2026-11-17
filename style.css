@@ -26,14 +26,15 @@ html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;background:var(--night
 html.locked{overflow:hidden}
 body{
   margin:0;font-family:var(--sans);font-size:1.0625rem;line-height:1.65;color:var(--text);
-  background:
-    radial-gradient(1200px 700px at 80% -10%, #3b1670 0%, transparent 60%),
-    radial-gradient(900px 600px at 0% 40%, #2c0e52 0%, transparent 60%),
-    linear-gradient(180deg,#12061f 0%,#1c0a35 50%,#12061f 100%);
-  background-attachment:fixed;
+  background:var(--night);
   overflow-x:hidden;-webkit-font-smoothing:antialiased;
 }
 [hidden]{display:none!important}
+/* fondo fijo (en iPhone background-attachment:fixed no funciona, esto sí) */
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:
+  radial-gradient(1200px 700px at 80% -10%, #3b1670 0%, transparent 60%),
+  radial-gradient(900px 600px at 0% 40%, #2c0e52 0%, transparent 60%),
+  linear-gradient(180deg,#12061f 0%,#1c0a35 50%,#12061f 100%)}
 h1,h2,p,ol{margin:0}
 ol{padding:0;list-style:none}
 em{font-style:italic}
@@ -101,7 +102,7 @@ main,.music-bar{position:relative;z-index:2}
 @keyframes breathe{50%{transform:translate(-50%,-50%) scale(1.08);opacity:.85}}
 .hero__inner{position:relative;display:grid;justify-items:center;gap:1rem}
 .hero__kicker{font-family:var(--serif);font-style:italic;font-size:clamp(1.1rem,2.4vw,1.5rem);color:var(--lilac);letter-spacing:.06em}
-.hero__name{font-family:var(--script);font-weight:400;font-size:clamp(5.4rem,22vw,14rem);line-height:.95;letter-spacing:.01em;padding-inline:.15em;
+.hero__name{font-family:var(--script);font-weight:400;font-size:clamp(5.4rem,27vw,14rem);line-height:.95;letter-spacing:.01em;padding-inline:.15em;
   background:linear-gradient(120deg,#ffd3ea 0%,#ffffff 35%,#d6b7ff 70%,#ff9ccf 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
   filter:drop-shadow(0 0 28px rgba(255,156,207,.45))}
 .hero__line{font-family:var(--serif);font-size:clamp(1.4rem,3.6vw,2.4rem);color:var(--text);font-style:italic}
@@ -242,3 +243,15 @@ html.js .paper[data-reveal].in{transform:rotate(-.6deg)}
   .stars__line{stroke-dashoffset:0}
   .stars__pts use,.stars__her{opacity:1;transform:none;animation:none}
 }
+
+@media (max-width:600px){
+  .music-bar{left:.6rem;bottom:.6rem}
+  .music{min-height:2.6rem;padding:.3rem .9rem .3rem .8rem;font-size:.8rem}
+  .hero{padding-block:5rem 6rem}
+  .ask__actions{flex-direction:column;align-items:center;width:100%}
+  .ask__actions .btn,.no-wrap{width:min(100%,20rem)}
+  .no-wrap .btn{width:100%}
+  .paper{transform:none}
+  html.js .paper[data-reveal],html.js .paper[data-reveal].in{transform:none}
+}
+@media (max-width:820px){.stars__svg{margin-bottom:1.6rem}}
