@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es" class="js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Para Yadira</title>
+<meta name="description" content="Una pregunta, escrita con calma, para Yadira.">
+<meta name="theme-color" content="#170c2e">
+<meta property="og:title" content="Para Yadira">
+<meta property="og:description" content="Hay algo que quiero preguntarte.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%237a4fd0'/%3E%3Ccircle cx='42' cy='24' r='9' fill='%23f0b98d'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<noscript><style>.gate{display:none!important}html.js [data-reveal]{opacity:1!important;transform:none!important;filter:none!important}.hero .line>span{transform:none!important}.statement .w{opacity:1!important}</style></noscript>
+</head>
+<body>
+
+<a class="skip" href="#pregunta">Ir a la pregunta</a>
+
+<!-- Pantalla de entrada: el toque del usuario es lo que permite que suene la música -->
+<section class="gate" id="gate" aria-label="Entrada">
+  <div class="gate__rings" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="gate__body">
+    <svg class="gate__mark" viewBox="0 0 120 120" aria-hidden="true">
+      <circle class="ring" cx="60" cy="60" r="56" />
+      <text x="60" y="78" text-anchor="middle">Y</text>
+    </svg>
+    <p class="gate__line">Hay algo para ti, <em>Yadira.</em></p>
+    <button class="btn btn--light" id="open" type="button">Abrir</button>
+    <p class="gate__hint">Mejor con sonido.</p>
+  </div>
+</section>
+
+<main>
+  <!-- 1. Portada -->
+  <section class="hero" id="inicio">
+    <div class="hero__art" aria-hidden="true">
+      <div class="moon"></div>
+      <div class="orbit"><i></i></div>
+    </div>
+    <div class="wrap hero__grid">
+      <p class="eyebrow line"><span>Para Yadira</span></p>
+      <h1 class="hero__title">
+        <span class="line" style="--i:1"><span><em>Yadira,</em></span></span>
+        <span class="line" style="--i:2"><span>hay algo que</span></span>
+        <span class="line" style="--i:3"><span>quiero preguntarte.</span></span>
+      </h1>
+      <p class="hero__sub line" style="--i:5"><span>Llevo un rato buscando la forma de hacerlo bien. Esta es la mejor que encontré.</span></p>
+      <a class="cue" href="#frase" style="--i:6">
+        <span>Sigue bajando</span>
+        <svg width="14" height="22" viewBox="0 0 14 22" fill="none" aria-hidden="true"><path d="M7 1v19M1.5 14.5 7 20l5.5-5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- 2. Frase que se ilumina con el scroll -->
+  <section class="statement" id="frase" aria-label="Una frase">
+    <div class="statement__stick">
+      <p class="statement__text" id="statementText" data-em="morado.">Hay personas que llegan y el día cambia de color. Contigo, el mío se volvió morado.</p>
+    </div>
+  </section>
+
+  <!-- 3. Tres cosas -->
+  <section class="beats" id="razones">
+    <div class="wrap">
+      <h2 class="h2" data-reveal>Tres cosas que sé.</h2>
+      <ol class="beats__list">
+        <li data-reveal style="--d:0ms"><span class="num">01</span><p>Me gusta lo fácil que es hablar contigo.</p></li>
+        <li data-reveal style="--d:80ms"><span class="num">02</span><p>Me gusta imaginar lo que viene, contigo adentro.</p></li>
+        <li data-reveal style="--d:160ms"><span class="num">03</span><p>Me gusta cómo se ve el morado cuando lo llevas tú.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 4. Carta -->
+  <section class="letter" id="carta">
+    <div class="wrap letter__grid">
+      <h2 class="h2 letter__h" data-reveal>Sin adornos, <em>te lo digo así.</em></h2>
+      <div class="letter__body">
+        <p data-reveal>No existe una forma perfecta de decir esto, así que lo digo como es.</p>
+        <p data-reveal style="--d:70ms">Contigo los días pesan menos. Pienso en ti sin que nadie me lo pida. Y ya no quiero que eso sea un secreto.</p>
+        <p data-reveal style="--d:140ms">Por eso te escribí esta página. Tiene su truco, pero la pregunta va en serio.</p>
+        <p data-reveal style="--d:210ms">Y sí, escogí la canción a propósito. Sé que para ti el morado quiere decir <em>borahae</em>: te quiero hasta el final.</p>
+        <p class="sign" data-reveal style="--d:280ms"><span data-from>Con cariño</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. La pregunta -->
+  <section class="ask" id="pregunta">
+    <div class="wrap ask__wrap">
+      <div class="ask__content" id="askContent">
+        <p class="eyebrow eyebrow--dark" data-reveal>La pregunta</p>
+        <h2 class="ask__title" data-reveal style="--d:60ms">¿Quieres ser <em>mi novia?</em></h2>
+        <div class="ask__actions" data-reveal style="--d:140ms">
+          <button class="btn btn--light" id="yes" type="button">Sí, quiero</button>
+          <span class="no-wrap" id="noWrap"><button class="btn btn--ghost" id="no" type="button">Déjame pensarlo</button></span>
+        </div>
+      </div>
+
+      <div class="thanks" id="thanks" aria-live="polite" hidden>
+        <p class="eyebrow eyebrow--dark" id="thanksDate"></p>
+        <h2 class="ask__title">Gracias, <em>Yadira.</em></h2>
+        <p class="thanks__p">Me hiciste el día, la semana y, creo, el año. Prometo cuidar esto con calma y con ganas. Borahae.</p>
+        <a class="btn btn--light" id="wa" href="#" target="_blank" rel="noopener" hidden>Avísame por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<canvas id="petals" aria-hidden="true"></canvas>
+
+<!-- Música: YouTube incrustado, oculto; el control es nuestro -->
+<div class="yt" aria-hidden="true"><div id="yt"></div></div>
+<button class="music" id="music" type="button" aria-pressed="false" aria-label="Música: activar o silenciar" hidden>
+  <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  <span class="music__label">Música</span>
+</button>
+
+<script src="app.js"></script>
+</body>
+</html>
