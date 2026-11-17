@@ -3,122 +3,157 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Para Yadira</title>
-<meta name="description" content="Una pregunta, escrita con calma, para Yadira.">
-<meta name="theme-color" content="#170c2e">
+<title>Para Yadira, con amor</title>
+<meta name="description" content="Una carta, una canción y una pregunta, para Yadira.">
+<meta name="theme-color" content="#12061f">
 <meta property="og:title" content="Para Yadira">
 <meta property="og:description" content="Hay algo que quiero preguntarte.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%237a4fd0'/%3E%3Ccircle cx='42' cy='24' r='9' fill='%23f0b98d'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 56C8 38 4 22 14 13c8-7 16-2 18 5 2-7 10-12 18-5 10 9 6 25-18 43z' fill='%23b57bff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Great+Vibes&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<noscript><style>.gate{display:none!important}html.js [data-reveal]{opacity:1!important;transform:none!important;filter:none!important}.hero .line>span{transform:none!important}.statement .w{opacity:1!important}</style></noscript>
+<noscript><style>.gate{display:none!important}html.js [data-reveal]{opacity:1!important;transform:none!important}.statement .w{opacity:1!important}.hero [data-in]{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
-<a class="skip" href="#pregunta">Ir a la pregunta</a>
+<canvas id="sky" aria-hidden="true"></canvas>
+<canvas id="fx" aria-hidden="true"></canvas>
 
-<!-- Pantalla de entrada: el toque del usuario es lo que permite que suene la música -->
-<section class="gate" id="gate" aria-label="Entrada">
-  <div class="gate__rings" aria-hidden="true"><i></i><i></i><i></i></div>
-  <div class="gate__body">
-    <svg class="gate__mark" viewBox="0 0 120 120" aria-hidden="true">
-      <circle class="ring" cx="60" cy="60" r="56" />
-      <text x="60" y="78" text-anchor="middle">Y</text>
-    </svg>
-    <p class="gate__line">Hay algo para ti, <em>Yadira.</em></p>
-    <button class="btn btn--light" id="open" type="button">Abrir</button>
-    <p class="gate__hint">Mejor con sonido.</p>
+<!-- ===== Sobre ===== -->
+<section class="gate" id="gate" aria-label="Un sobre para Yadira">
+  <div class="gate__stage">
+    <div class="env" id="env">
+      <div class="env__back"></div>
+      <div class="env__letter" aria-hidden="true">
+        <span>Para</span>
+        <strong>Yadira</strong>
+      </div>
+      <div class="env__front"></div>
+      <div class="env__flap"></div>
+      <button class="env__seal" id="open" type="button" aria-label="Abrir el sobre">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 52C10 36 6 22 15 14c7-6 14-2 17 4 3-6 10-10 17-4 9 8 5 22-17 38z"/></svg>
+      </button>
+    </div>
+    <p class="gate__title">Tienes una carta, <em>Yadira.</em></p>
+    <p class="gate__hint">Toca el sello del corazón &middot; mejor con sonido</p>
   </div>
 </section>
 
 <main>
-  <!-- 1. Portada -->
+  <!-- ===== Portada ===== -->
   <section class="hero" id="inicio">
-    <div class="hero__art" aria-hidden="true">
-      <div class="moon"></div>
-      <div class="orbit"><i></i></div>
-    </div>
-    <div class="wrap hero__grid">
-      <p class="eyebrow line"><span>Para Yadira</span></p>
-      <h1 class="hero__title">
-        <span class="line" style="--i:1"><span><em>Yadira,</em></span></span>
-        <span class="line" style="--i:2"><span>hay algo que</span></span>
-        <span class="line" style="--i:3"><span>quiero preguntarte.</span></span>
-      </h1>
-      <p class="hero__sub line" style="--i:5"><span>Llevo un rato buscando la forma de hacerlo bien. Esta es la mejor que encontré.</span></p>
-      <a class="cue" href="#frase" style="--i:6">
-        <span>Sigue bajando</span>
-        <svg width="14" height="22" viewBox="0 0 14 22" fill="none" aria-hidden="true"><path d="M7 1v19M1.5 14.5 7 20l5.5-5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="wrap hero__inner">
+      <p class="hero__kicker" data-in style="--i:0">Para ti, con todo el cariño</p>
+      <h1 class="hero__name" data-in style="--i:1">Yadira</h1>
+      <p class="hero__line" data-in style="--i:2">Hay algo que quiero preguntarte<span class="dots" aria-hidden="true">…</span></p>
+      <p class="hero__sub" data-in style="--i:3">Lo escribí con calma, bajo las estrellas, esperando que lo leas igual.</p>
+      <a class="cue" href="#frase" data-in style="--i:4" aria-label="Seguir bajando">
+        <span>Desliza</span>
+        <svg width="16" height="26" viewBox="0 0 16 26" fill="none" aria-hidden="true"><rect x="1" y="1" width="14" height="24" rx="7" stroke="currentColor" stroke-width="1.4"/><circle class="wheel" cx="8" cy="8" r="2" fill="currentColor"/></svg>
       </a>
     </div>
   </section>
 
-  <!-- 2. Frase que se ilumina con el scroll -->
+  <!-- ===== Frase ===== -->
   <section class="statement" id="frase" aria-label="Una frase">
     <div class="statement__stick">
-      <p class="statement__text" id="statementText" data-em="morado.">Hay personas que llegan y el día cambia de color. Contigo, el mío se volvió morado.</p>
+      <p class="statement__text" id="statementText" data-em="morado.">Hay personas que llegan y, sin pedir permiso, cambian el color de los días. Contigo, el mío se volvió morado.</p>
     </div>
   </section>
 
-  <!-- 3. Tres cosas -->
-  <section class="beats" id="razones">
-    <div class="wrap">
-      <h2 class="h2" data-reveal>Tres cosas que sé.</h2>
-      <ol class="beats__list">
-        <li data-reveal style="--d:0ms"><span class="num">01</span><p>Me gusta lo fácil que es hablar contigo.</p></li>
-        <li data-reveal style="--d:80ms"><span class="num">02</span><p>Me gusta imaginar lo que viene, contigo adentro.</p></li>
-        <li data-reveal style="--d:160ms"><span class="num">03</span><p>Me gusta cómo se ve el morado cuando lo llevas tú.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- 4. Carta -->
-  <section class="letter" id="carta">
-    <div class="wrap letter__grid">
-      <h2 class="h2 letter__h" data-reveal>Sin adornos, <em>te lo digo así.</em></h2>
-      <div class="letter__body">
-        <p data-reveal>No existe una forma perfecta de decir esto, así que lo digo como es.</p>
-        <p data-reveal style="--d:70ms">Contigo los días pesan menos. Pienso en ti sin que nadie me lo pida. Y ya no quiero que eso sea un secreto.</p>
-        <p data-reveal style="--d:140ms">Por eso te escribí esta página. Tiene su truco, pero la pregunta va en serio.</p>
-        <p data-reveal style="--d:210ms">Y sí, escogí la canción a propósito. Sé que para ti el morado quiere decir <em>borahae</em>: te quiero hasta el final.</p>
-        <p class="sign" data-reveal style="--d:280ms"><span data-from>Con cariño</span></p>
+  <!-- ===== Corazón dibujado ===== -->
+  <section class="heart" id="corazon">
+    <div class="wrap heart__wrap">
+      <svg class="heart__svg" viewBox="-6 -6 212 196" aria-hidden="true">
+        <defs>
+          <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffb3dc"/><stop offset=".5" stop-color="#c79bff"/><stop offset="1" stop-color="#8a5cff"/>
+          </linearGradient>
+          <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="4"/></filter>
+        </defs>
+        <path class="heart__fill" d="M100 172C18 112-6 66 28 34 54 9 90 20 100 48 110 20 146 9 172 34 206 66 182 112 100 172Z"/>
+        <path class="heart__glow" pathLength="1" d="M100 172C18 112-6 66 28 34 54 9 90 20 100 48 110 20 146 9 172 34 206 66 182 112 100 172Z" filter="url(#glow)"/>
+        <path class="heart__line" pathLength="1" d="M100 172C18 112-6 66 28 34 54 9 90 20 100 48 110 20 146 9 172 34 206 66 182 112 100 172Z"/>
+      </svg>
+      <div class="heart__text">
+        <h2 class="h2" data-reveal>Contigo, todo <em>late distinto.</em></h2>
+        <p data-reveal style="--d:90ms">Las tardes, la música, hasta el silencio. Todo se siente más suave cuando estás cerca.</p>
       </div>
     </div>
   </section>
 
-  <!-- 5. La pregunta -->
+  <!-- ===== Tres cosas ===== -->
+  <section class="beats" id="razones">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Lo que sé de ti</p>
+      <h2 class="h2 h2--center" data-reveal style="--d:60ms">Tres cosas que me <em>encantan.</em></h2>
+      <ol class="cards">
+        <li class="card" data-reveal style="--d:0ms">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40C9 29 6 19 12 13c5-4 10-1 12 3 2-4 7-7 12-3 6 6 3 16-12 27z"/></svg>
+          <p>Lo fácil que es hablar contigo, como si nos conociéramos de siempre.</p>
+        </li>
+        <li class="card" data-reveal style="--d:90ms">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M30 6a18 18 0 1 0 12 30A15 15 0 0 1 30 6z"/></svg>
+          <p>Imaginar lo que viene, con tu nombre escrito en cada plan.</p>
+        </li>
+        <li class="card" data-reveal style="--d:180ms">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="m24 5 5.3 12.2L42 18.6l-9.5 8.7 2.8 13L24 33.5 12.7 40.3l2.8-13L6 18.6l12.7-1.4z"/></svg>
+          <p>Cómo se ve el morado cuando lo llevas tú.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== Carta ===== -->
+  <section class="letter" id="carta">
+    <div class="wrap letter__wrap">
+      <article class="paper" data-reveal>
+        <p class="paper__to">Mi querida Yadira:</p>
+        <p>No existe una forma perfecta de decir esto, así que te lo digo como lo siento.</p>
+        <p>Me gusta cómo suena tu nombre. Me gusta pensar en ti cuando nadie me ve. Me gusta imaginar un mañana donde estés cerca.</p>
+        <p>Escogí la canción a propósito: sé que para ti el morado es <em>borahae</em>, te quiero hasta el final. Yo quiero que ese final empiece contigo.</p>
+        <p>Así que aquí estoy, con el corazón en la mano y esta página abierta, para hacerte la pregunta más importante que sé.</p>
+        <p class="paper__sign"><span data-from>Con todo mi cariño</span></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== La pregunta ===== -->
   <section class="ask" id="pregunta">
     <div class="wrap ask__wrap">
       <div class="ask__content" id="askContent">
-        <p class="eyebrow eyebrow--dark" data-reveal>La pregunta</p>
-        <h2 class="ask__title" data-reveal style="--d:60ms">¿Quieres ser <em>mi novia?</em></h2>
-        <div class="ask__actions" data-reveal style="--d:140ms">
-          <button class="btn btn--light" id="yes" type="button">Sí, quiero</button>
+        <svg class="ask__heart" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 56C8 38 4 22 14 13c8-7 16-2 18 5 2-7 10-12 18-5 10 9 6 25-18 43z"/></svg>
+        <p class="eyebrow" data-reveal>La pregunta</p>
+        <h2 class="ask__title" data-reveal style="--d:70ms">¿Quieres ser <em>mi novia?</em></h2>
+        <div class="ask__actions" data-reveal style="--d:150ms">
+          <button class="btn btn--main" id="yes" type="button">Sí, quiero</button>
           <span class="no-wrap" id="noWrap"><button class="btn btn--ghost" id="no" type="button">Déjame pensarlo</button></span>
         </div>
       </div>
 
       <div class="thanks" id="thanks" aria-live="polite" hidden>
-        <p class="eyebrow eyebrow--dark" id="thanksDate"></p>
+        <svg class="ask__heart ask__heart--big" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 56C8 38 4 22 14 13c8-7 16-2 18 5 2-7 10-12 18-5 10 9 6 25-18 43z"/></svg>
+        <p class="eyebrow" id="thanksDate"></p>
         <h2 class="ask__title">Gracias, <em>Yadira.</em></h2>
-        <p class="thanks__p">Me hiciste el día, la semana y, creo, el año. Prometo cuidar esto con calma y con ganas. Borahae.</p>
-        <a class="btn btn--light" id="wa" href="#" target="_blank" rel="noopener" hidden>Avísame por WhatsApp</a>
+        <p class="thanks__p">Me hiciste el día, la semana y, creo, el año entero. Prometo cuidar esto con calma, con ganas y con mucha música. Borahae.</p>
+        <a class="btn btn--main" id="wa" href="#" target="_blank" rel="noopener" hidden>Avísame por WhatsApp</a>
       </div>
     </div>
   </section>
 </main>
 
-<canvas id="petals" aria-hidden="true"></canvas>
-
-<!-- Música: YouTube incrustado, oculto; el control es nuestro -->
+<!-- Música: YouTube oculto, control propio -->
 <div class="yt" aria-hidden="true"><div id="yt"></div></div>
-<button class="music" id="music" type="button" aria-pressed="false" aria-label="Música: activar o silenciar" hidden>
-  <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-  <span class="music__label">Música</span>
-</button>
+<div class="music-bar" id="musicBar" hidden>
+  <button class="music" id="music" type="button" aria-pressed="false" aria-label="Activar o silenciar la música">
+    <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="music__label">Música</span>
+  </button>
+  <a class="music__alt" id="musicAlt" href="https://www.youtube.com/watch?v=XsX3ATc3FbA" target="_blank" rel="noopener" hidden>Escuchar en YouTube</a>
+</div>
 
 <script src="app.js"></script>
 </body>

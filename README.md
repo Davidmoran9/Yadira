@@ -1,7 +1,7 @@
 # Para Yadira
 
 Pagina estatica (HTML, CSS y JS, sin build). Ajustes en el bloque CONFIG al inicio de `app.js`:
-`de` (tu nombre en la firma), `whatsapp` (tu numero con pais, sin +), `videoId` y `volumen`.
+`de` (tu nombre en la firma), `whatsapp` (tu numero con pais, sin +), `videos` (lista de respaldo) y `volumen`.
 
 ## Probar en local
     python -m http.server 4173   # y abrir http://localhost:4173
@@ -11,3 +11,8 @@ Pagina estatica (HTML, CSS y JS, sin build). Ajustes en el bloque CONFIG al inic
 2. En Render: New > Static Site, conecta el repo. Build command: vacio. Publish directory: `.`
    (o usa Blueprint con `render.yaml`).
 3. La musica usa el reproductor de YouTube, funciona en cualquier dominio con HTTPS.
+
+## Sobre la musica
+El video x4S55IuuMFE (version traducida) tiene el embed bloqueado por la discografica (LatinAutor - UMPG),
+asi que no suena fuera de youtube.com. Se usa primero el MV oficial de HYBE (XsX3ATc3FbA); el otro queda de respaldo.
+Si ninguno arranca aparece el boton "Escuchar en YouTube".
